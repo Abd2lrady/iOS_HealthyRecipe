@@ -8,17 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		B492C1FD275B8BBB007E1942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492C1FC275B8BBB007E1942 /* AppDelegate.swift */; };
-		B492C1FF275B8BBB007E1942 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492C1FE275B8BBB007E1942 /* SceneDelegate.swift */; };
 		B492C201275B8BBB007E1942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492C200275B8BBB007E1942 /* ViewController.swift */; };
 		B492C204275B8BBB007E1942 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B492C202275B8BBB007E1942 /* Main.storyboard */; };
 		B492C206275B8BBC007E1942 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B492C205275B8BBC007E1942 /* Assets.xcassets */; };
 		B492C209275B8BBC007E1942 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B492C207275B8BBC007E1942 /* LaunchScreen.storyboard */; };
+		B492C212275B8C89007E1942 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B492C211275B8C89007E1942 /* Moya */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B492C1F9275B8BBB007E1942 /* iOS_HealthyRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_HealthyRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B492C1FC275B8BBB007E1942 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B492C1FE275B8BBB007E1942 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B492C200275B8BBB007E1942 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B492C203275B8BBB007E1942 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B492C205275B8BBC007E1942 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B492C212275B8C89007E1942 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				B492C1FC275B8BBB007E1942 /* AppDelegate.swift */,
-				B492C1FE275B8BBB007E1942 /* SceneDelegate.swift */,
 				B492C200275B8BBB007E1942 /* ViewController.swift */,
 				B492C202275B8BBB007E1942 /* Main.storyboard */,
 				B492C205275B8BBC007E1942 /* Assets.xcassets */,
@@ -83,6 +82,9 @@
 			dependencies = (
 			);
 			name = iOS_HealthyRecipe;
+			packageProductDependencies = (
+				B492C211275B8C89007E1942 /* Moya */,
+			);
 			productName = iOS_HealthyRecipe;
 			productReference = B492C1F9275B8BBB007E1942 /* iOS_HealthyRecipe.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +113,9 @@
 				Base,
 			);
 			mainGroup = B492C1F0275B8BBB007E1942;
+			packageReferences = (
+				B492C210275B8C89007E1942 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = B492C1FA275B8BBB007E1942 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,7 +145,6 @@
 			files = (
 				B492C201275B8BBB007E1942 /* ViewController.swift in Sources */,
 				B492C1FD275B8BBB007E1942 /* AppDelegate.swift in Sources */,
-				B492C1FF275B8BBB007E1942 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +221,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -272,7 +276,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -296,6 +300,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,6 +328,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B492C210275B8C89007E1942 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B492C211275B8C89007E1942 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B492C210275B8C89007E1942 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B492C1F1275B8BBB007E1942 /* Project object */;
 }
