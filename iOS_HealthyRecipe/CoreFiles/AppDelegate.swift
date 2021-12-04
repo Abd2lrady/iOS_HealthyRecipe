@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  iOS_HealthyRecipe
 //
-//  Created by Ahmad Abdulrady on 04/12/2021.
+//  Created by Ahmad Abdulrady
 //
 
 import UIKit
@@ -15,12 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        // Override point for customization after application launch.
-        window = UIWindow()
-        window?.rootViewController = SearchRecipeVC()
-        window?.makeKeyAndVisible()
+        bootStrap()
         return true
-        
+    }
+    
+    func bootStrap() {
+        window = UIWindow()
+        let coordinator = AppCoordinator(window: window ?? UIWindow())
+        coordinator.coordinate()
     }
 
 }
