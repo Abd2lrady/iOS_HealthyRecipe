@@ -10,6 +10,8 @@ enum EnviromentVariables {
     
     private enum PlistKeys {
         static let baseURL = "ROOT_URL"
+        static let appID = "APP_ID"
+        static let appKey = "APP_KEY"
     }
     
     private static let infoDict: [String: Any] = {
@@ -34,11 +36,17 @@ enum EnviromentVariables {
     }()
     
     static let appID: String = {
-        return "8a1f2d11"
+        guard let appID = infoDict[PlistKeys.appID] as? String else {
+            fatalError("App Id not founded in Plist")
+        }
+        return appID
     }()
     
     static let appKey: String = {
-        return "d815e43efdfd35392681f44e5151d1b4"
+        guard let appKey = infoDict[PlistKeys.appKey] as? String else {
+            fatalError("App Id not founded in Plist")
+        }
+        return appKey
     }()
 
 }
