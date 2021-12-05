@@ -12,11 +12,14 @@ class SearchBarWithDropDown: UIView {
  
     @IBOutlet private weak var searchTextField: UITextField!
     @IBOutlet private weak var searchBtn: UIButton!
-    @IBOutlet private weak var lastSearchList: UITableView!
-    @IBOutlet weak var lastSearchListHeight: NSLayoutConstraint!
-    
+    @IBOutlet private weak var lastSearchList: UITableView! {
+        didSet {
+            configList()
+        }
+    }
+    @IBOutlet private weak var lastSearchListHeight: NSLayoutConstraint!
+    let data = SearchListDataSource()
     var searchAction: ((String) -> Void)?
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -55,7 +58,12 @@ extension SearchBarWithDropDown {
 extension SearchBarWithDropDown {
     private func configList() {
         lastSearchList.backgroundColor = .clear
-        lastSearchList.register(<#T##nib: UINib?##UINib?#>, forCellReuseIdentifier: <#T##String#>)
+        let cellNib = UINib(nibName: "\(LastSearchListCellTVCell.self)",
+                            bundle: .main)
+        lastSearchList.register(cellNib,
+                                forCellReuseIdentifier: LastSearchListCellTVCell.reuseID)
+        lastSearchList.delegate = data
+        lastSearchList.dataSource = data
     }
 }
 
