@@ -18,6 +18,15 @@ internal struct Colors {
   internal let rgbaValue: UInt32
   internal var color: Color { return Color(named: self) }
 
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#5cb466"></span>
+  /// Alpha: 100% <br/> (0x5cb466ff)
+  internal static let filterSelected = Colors(rgbaValue: 0x5cb466ff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#788995"></span>
+  /// Alpha: 100% <br/> (0x788995ff)
+  internal static let recipeDetails = Colors(rgbaValue: 0x788995ff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#314d6c"></span>
+  /// Alpha: 100% <br/> (0x314d6cff)
+  internal static let searchBtnBG = Colors(rgbaValue: 0x314d6cff)
 }
 // swiftlint:enable identifier_name line_length type_body_length
 

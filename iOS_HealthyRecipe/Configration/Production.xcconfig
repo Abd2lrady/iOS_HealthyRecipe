@@ -1,0 +1,13 @@
+//
+//  Production.xcconfig
+//  iOS_HealthyRecipe
+//
+//  Created by Ahmad Abdulrady
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_NAME = HealthyRecipe.Production
+APP_ICON = AppIcon
+APP_BUNDLE_IDENTIFIER = com.abd2lrady.HealthyRecipe.Production
+ROOT_URL = api.edamam.com

@@ -1,0 +1,4 @@
+filterSelected: #5cb466
+searchBtnBG: #314d6c
+recipeDetails: #788995
+

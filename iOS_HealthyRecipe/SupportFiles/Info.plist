@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>ROOT_URL</key>
+	<string>$(ROOT_URL)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>JosefinSans-Bold.ttf</string>
+		<string>JosefinSans-Medium.ttf</string>
+		<string>JosefinSans-Regular.ttf</string>
+		<string>JosefinSans-Thin.ttf</string>
+	</array>
+</dict>
 </plist>
