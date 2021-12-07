@@ -20,7 +20,7 @@ extension RecipeTarget: TargetType {
     var path: String {
         switch self {
         case .getRecipe:
-            return "/search"
+            return "search"
         }
     }
     
@@ -34,11 +34,12 @@ extension RecipeTarget: TargetType {
     var task: Task {
         let appKey = EnviromentVariables.appKey
         let appID = EnviromentVariables.appID
+        let param = ["q":"chicken", "app_key": appKey, "app_id": appID]
         switch self {
         case .getRecipe:
-                return .requestParameters(parameters: ["app_id": appKey,
-                                                "app_key": appID],
-                                   encoding: URLEncoding.default)
+            return .requestParameters(parameters: param,
+                                          
+                                      encoding: URLEncoding.default)
         }
     }
     

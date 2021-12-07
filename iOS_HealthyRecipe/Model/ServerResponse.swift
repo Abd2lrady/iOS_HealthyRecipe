@@ -9,8 +9,7 @@ import Foundation
 
 struct ServerResponse<ResponseType: Codable>: Codable {
 
-    var hits: ResponseType?
-    let message: String?
+    let hits: ResponseType?
     let count: Int?
 
 }

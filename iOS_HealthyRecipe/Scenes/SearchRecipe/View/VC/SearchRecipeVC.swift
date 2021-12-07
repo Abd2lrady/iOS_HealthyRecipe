@@ -15,6 +15,7 @@ class SearchRecipeVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var suggestionListHeightConstrain: NSLayoutConstraint!
     
     var presenter: SearchRecipePresenterProtocol!
+    var interactor = SearchRecipeInteractor()
     let searchTextFieldDelegate = SearchTextFieldDelegate()
     let suggestionListDelegates = SuggestionListDelegates()
     let maxSuggestListHeight = CGFloat(100)
@@ -35,10 +36,17 @@ class SearchRecipeVC: UIViewController, UITextFieldDelegate {
 //            print(data)
 //        }.resume()
         
-       
-
-    
-            
+//        let provider = MoyaProvider<MultiTarget>()
+//        provider.request(<#T##target: MultiTarget##MultiTarget#>, completion: <#T##Completion##Completion##(_ result: Result<Response, MoyaError>) -> Void#>)
+        
+        interactor.getRecipe { result in
+            switch result {
+            case .success(let recipes):
+                print(recipes)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func configUI() {
@@ -47,7 +55,7 @@ class SearchRecipeVC: UIViewController, UITextFieldDelegate {
     }
 }
 
-//MARK: - configure SuggestionList
+// MARK: configure SuggestionList
 extension SearchRecipeVC {
     private func configSuggestionList() {
         suggestionList.backgroundColor = .clear
@@ -88,7 +96,7 @@ extension SearchRecipeVC {
 
 }
 
-//MARK: - configure SearchField
+// MARK: configure SearchField
 extension SearchRecipeVC {
     func configSearchTextField() {
         searchTextField.delegate = searchTextFieldDelegate

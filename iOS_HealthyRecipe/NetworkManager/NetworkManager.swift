@@ -7,6 +7,7 @@
 
 import Moya
 import Foundation
+import SwiftUI
 
 class NetworkManager {
     private init() {}
@@ -25,4 +26,5 @@ class NetworkManager {
             }
         }
     }
+    
 }

@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct Hit: Codable {
+    let recipe: Recipe
+}
+
 struct Recipe: Codable {
     let label: String
     let image: String
