@@ -8,5 +8,6 @@
 import Foundation
 
 protocol SearchRecipePresenterProtocol {
-    
+    func getRecipes()
+    func selectedRecipe(recipe: Recipe)
 }

@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchRecipeVC" customModule="iOS_HealthyRecipe" customModuleProvider="target">
             <connections>
+                <outlet property="searchTextField" destination="vdY-t7-bWr" id="y5f-1S-Smk"/>
+                <outlet property="suggestionList" destination="6i8-AG-mYS" id="B1d-gx-FKV"/>
+                <outlet property="suggestionListHeightConstrain" destination="JYr-Lf-7xa" id="wOW-Ru-f83"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,20 +22,59 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IGq-nT-X8I" customClass="SearchBarWithDropDown" customModule="iOS_HealthyRecipe" customModuleProvider="target">
-                    <rect key="frame" x="87" y="191" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vdY-t7-bWr">
+                    <rect key="frame" x="20.5" y="74" width="373" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="9NE-5p-tJo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KE-rj-c3V" userLabel="UnderlineView">
+                    <rect key="frame" x="20.5" y="119" width="373" height="1"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="LNe-je-Xfv"/>
+                    </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6i8-AG-mYS" userLabel="SuggestionList">
+                    <rect key="frame" x="20.5" y="120" width="373" height="0.0"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="JYr-Lf-7xa"/>
+                    </constraints>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nde-mk-JMr" userLabel="RecipeList">
+                    <rect key="frame" x="20.5" y="135" width="373" height="727"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemBlueColor"/>
+            <constraints>
+                <constraint firstItem="6KE-rj-c3V" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0jA-M3-U1r"/>
+                <constraint firstItem="nde-mk-JMr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1i3-ID-o9g"/>
+                <constraint firstItem="nde-mk-JMr" firstAttribute="width" secondItem="6i8-AG-mYS" secondAttribute="width" id="ESL-Uk-Mfa"/>
+                <constraint firstItem="6i8-AG-mYS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="F1d-fU-dsg"/>
+                <constraint firstItem="6KE-rj-c3V" firstAttribute="width" secondItem="vdY-t7-bWr" secondAttribute="width" id="YTA-At-gzX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nde-mk-JMr" secondAttribute="bottom" id="aV7-BQ-pRj"/>
+                <constraint firstItem="nde-mk-JMr" firstAttribute="top" secondItem="6i8-AG-mYS" secondAttribute="bottom" constant="15" id="aov-bQ-Pqf"/>
+                <constraint firstItem="6i8-AG-mYS" firstAttribute="top" secondItem="6KE-rj-c3V" secondAttribute="bottom" id="dXg-8Q-qSg"/>
+                <constraint firstItem="vdY-t7-bWr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ljY-LA-lFX"/>
+                <constraint firstItem="6i8-AG-mYS" firstAttribute="width" secondItem="6KE-rj-c3V" secondAttribute="width" id="rw0-IV-iLa"/>
+                <constraint firstItem="vdY-t7-bWr" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="sG1-Kh-dfH"/>
+                <constraint firstItem="6KE-rj-c3V" firstAttribute="top" secondItem="vdY-t7-bWr" secondAttribute="bottom" constant="5" id="vgI-Ad-Qaq"/>
+                <constraint firstItem="vdY-t7-bWr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="xad-eq-1MC"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="98"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

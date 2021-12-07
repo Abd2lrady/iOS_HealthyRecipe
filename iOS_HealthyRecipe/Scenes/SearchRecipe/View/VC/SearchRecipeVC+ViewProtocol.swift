@@ -8,5 +8,9 @@
 import Foundation
 
 extension SearchRecipeVC: SearchRecipeViewProtocol {
+    func recipeFetched() {
+        
+    }
+    
     
 }

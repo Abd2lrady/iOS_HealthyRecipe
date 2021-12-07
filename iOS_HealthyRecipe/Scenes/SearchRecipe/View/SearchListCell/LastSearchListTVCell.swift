@@ -7,8 +7,8 @@
 
 import UIKit
 
-class LastSearchListCellTVCell: UITableViewCell {
-    static let reuseID = "LastSearchListCellTVCell"
+class LastSearchListTVCell: UITableViewCell {
+    static let reuseID = "LastSearchListTVCell"
     
     @IBOutlet private weak var _lastSearchLabel: UILabel!
     
@@ -29,7 +29,7 @@ class LastSearchListCellTVCell: UITableViewCell {
     }
 }
 
-extension LastSearchListCellTVCell {
+extension LastSearchListTVCell {
     var lastSearchLabel: UILabel {
         get {
             return _lastSearchLabel

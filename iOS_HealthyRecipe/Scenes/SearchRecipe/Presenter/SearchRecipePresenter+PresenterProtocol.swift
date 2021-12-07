@@ -8,5 +8,13 @@
 import Foundation
 
 extension SearchRecipePresenter: SearchRecipePresenterProtocol {
+    func getRecipes() {
+        
+    }
+    
+    func selectedRecipe(recipe: Recipe) {
+        
+    }
+    
     
 }

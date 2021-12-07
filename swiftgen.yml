@@ -1,0 +1,34 @@
+
+xcassets:
+  - inputs: iOS_HealthyRecipe/Resources/Assets
+    outputs:
+        templateName: swift5
+        output: iOS_HealthyRecipe/Resources/GeneratedFiles/Assets.swift
+        params:
+            enumName: Assets
+
+colors:
+  - inputs: iOS_HealthyRecipe/Resources/Colors/Colors.txt
+    outputs:
+        templateName: swift5
+        output: iOS_HealthyRecipe/Resources/GeneratedFiles/Colors.swift
+        params:
+            enumName: Colors
+      
+fonts:
+  - inputs: iOS_HealthyRecipe/Resources/Fonts
+    outputs:
+        templateName: swift5
+        output: iOS_HealthyRecipe/Resources/GeneratedFiles/Fonts.swift
+        params:
+            enumName: Fonts
+            
+strings:
+  - inputs: iOS_HealthyRecipe/Resources/Strings/Localizable.strings
+    outputs:
+        templateName: structured-swift5
+        output: iOS_HealthyRecipe/Resources/GeneratedFiles/Strings.swift
+        params:
+            enumName: Strings
+            
+        

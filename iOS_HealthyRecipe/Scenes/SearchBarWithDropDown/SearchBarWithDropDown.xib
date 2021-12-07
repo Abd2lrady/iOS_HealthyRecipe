@@ -4,75 +4,57 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBarWithDropDown" customModule="iOS_HealthyRecipe" customModuleProvider="target">
             <connections>
-                <outlet property="lastSearchList" destination="lBw-R4-a88" id="skg-FU-Ei3"/>
                 <outlet property="lastSearchListHeight" destination="Dj2-rT-HUa" id="P4o-ac-Mq1"/>
-                <outlet property="searchBtn" destination="zqJ-0M-XdE" id="dx9-SW-IFG"/>
                 <outlet property="searchTextField" destination="oKr-zZ-CeP" id="JpS-IK-ESE"/>
+                <outlet property="suggestionList" destination="lBw-R4-a88" id="skg-FU-Ei3"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="555" height="379"/>
+            <rect key="frame" x="0.0" y="0.0" width="323" height="179"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lBw-R4-a88" userLabel="LastSearchedList">
-                    <rect key="frame" x="20" y="141" width="515" height="100"/>
+                    <rect key="frame" x="20" y="64" width="283" height="100"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="Dj2-rT-HUa"/>
                     </constraints>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vqo-dW-G3r" userLabel="UnderlineView">
-                    <rect key="frame" x="20" y="131" width="515" height="2"/>
+                    <rect key="frame" x="20" y="54" width="283" height="2"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="wd9-dT-hY3"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqJ-0M-XdE" userLabel="SearchButton">
-                    <rect key="frame" x="468" y="64" width="67" height="67"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="zqJ-0M-XdE" secondAttribute="height" id="HL6-1U-vge"/>
-                        <constraint firstAttribute="width" constant="67" id="a3L-je-fWU"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                    <connections>
-                        <action selector="searchBtnTapped:" destination="-1" eventType="touchUpInside" id="f5E-9c-oD6"/>
-                    </connections>
-                </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oKr-zZ-CeP">
-                    <rect key="frame" x="20" y="64" width="440" height="67"/>
+                    <rect key="frame" x="20" y="20" width="283" height="34"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
                 </textField>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="lBw-R4-a88" firstAttribute="leading" secondItem="oKr-zZ-CeP" secondAttribute="leading" id="8zV-5o-6Yk"/>
                 <constraint firstItem="vqo-dW-G3r" firstAttribute="top" secondItem="oKr-zZ-CeP" secondAttribute="bottom" id="9i5-Y2-i0l"/>
-                <constraint firstItem="zqJ-0M-XdE" firstAttribute="leading" secondItem="oKr-zZ-CeP" secondAttribute="trailing" constant="8" symbolic="YES" id="C4G-kr-uG3"/>
-                <constraint firstItem="zqJ-0M-XdE" firstAttribute="bottom" secondItem="oKr-zZ-CeP" secondAttribute="bottom" id="CWo-71-LIM"/>
-                <constraint firstItem="vqo-dW-G3r" firstAttribute="trailing" secondItem="zqJ-0M-XdE" secondAttribute="trailing" id="Gz5-mg-b98"/>
+                <constraint firstItem="oKr-zZ-CeP" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-20" id="EPE-al-eoT"/>
                 <constraint firstItem="lBw-R4-a88" firstAttribute="top" secondItem="vqo-dW-G3r" secondAttribute="bottom" constant="8" id="N8T-h6-1Fl"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zqJ-0M-XdE" secondAttribute="trailing" constant="20" id="PtT-MC-CHB"/>
-                <constraint firstItem="oKr-zZ-CeP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="TKz-du-xEH"/>
+                <constraint firstItem="oKr-zZ-CeP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="TKz-du-xEH"/>
                 <constraint firstItem="vqo-dW-G3r" firstAttribute="leading" secondItem="oKr-zZ-CeP" secondAttribute="leading" id="ZQN-Pj-56b"/>
-                <constraint firstItem="zqJ-0M-XdE" firstAttribute="top" secondItem="oKr-zZ-CeP" secondAttribute="top" id="adx-2Z-g3c"/>
-                <constraint firstItem="oKr-zZ-CeP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="bbt-z6-NEq"/>
-                <constraint firstItem="lBw-R4-a88" firstAttribute="trailing" secondItem="zqJ-0M-XdE" secondAttribute="trailing" id="q08-Wu-iuR"/>
+                <constraint firstAttribute="trailing" secondItem="vqo-dW-G3r" secondAttribute="trailing" constant="20" symbolic="YES" id="apS-y9-nbk"/>
+                <constraint firstItem="oKr-zZ-CeP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="bbt-z6-NEq"/>
+                <constraint firstItem="lBw-R4-a88" firstAttribute="width" secondItem="oKr-zZ-CeP" secondAttribute="width" id="u9Z-f2-uNX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="239.85507246376812" y="122.87946428571428"/>
+            <point key="canvasLocation" x="157.24637681159422" y="113.50446428571428"/>
         </view>
     </objects>
     <resources>

@@ -10,15 +10,24 @@ import UIKit
 
 class SearchBarWithDropDown: UIView {
  
-    @IBOutlet private weak var searchTextField: UITextField!
-    @IBOutlet private weak var searchBtn: UIButton!
-    @IBOutlet private weak var lastSearchList: UITableView! {
+    @IBOutlet  weak var searchTextField: UITextField! 
+    @IBOutlet  weak var suggestionList: UITableView! {
         didSet {
-            configList()
+//            configList()
         }
     }
-    @IBOutlet private weak var lastSearchListHeight: NSLayoutConstraint!
-    let data = SearchListDataSource()
+    @IBOutlet weak var lastSearchListHeight: NSLayoutConstraint!
+    
+    let maxListHeight = CGFloat(100)
+    
+    var listHeight: CGFloat {
+        get {
+            return suggestionList.contentSize.height > maxListHeight ? maxListHeight : suggestionList.contentSize.height
+        } set {
+                lastSearchListHeight.constant = newValue
+        }
+    }
+    
     var searchAction: ((String) -> Void)?
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,11 +37,6 @@ class SearchBarWithDropDown: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
-    }
-    
-    
-    @IBAction func searchBtnTapped(_ sender: UIButton) {
-        searchAction?(searchTextField.text ?? "")
     }
     
 }
@@ -56,16 +60,14 @@ extension SearchBarWithDropDown {
 }
 
 extension SearchBarWithDropDown {
-    private func configList() {
-        lastSearchList.backgroundColor = .clear
-        let cellNib = UINib(nibName: "\(LastSearchListCellTVCell.self)",
-                            bundle: .main)
-        lastSearchList.register(cellNib,
-                                forCellReuseIdentifier: LastSearchListCellTVCell.reuseID)
-        lastSearchList.delegate = data
-        lastSearchList.dataSource = data
-    }
+//    private func configList() {
+//        suggestionList.backgroundColor = .clear
+//        let cellNib = UINib(nibName: "\(LastSearchListTVCell.self)",
+//                            bundle: .main)
+//        suggestionList.register(cellNib,
+//                                forCellReuseIdentifier: LastSearchListTVCell.reuseID)
+//        suggestionList.shapeAllCorners(radius: 5)
+//        suggestionList.setBorders(with: 2, color: Colors.filterSelected.color)
+//    }
+//    
 }
-
-
-

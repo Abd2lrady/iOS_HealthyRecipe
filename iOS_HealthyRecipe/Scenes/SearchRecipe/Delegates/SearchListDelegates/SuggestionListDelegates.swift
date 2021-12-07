@@ -8,22 +8,24 @@
 import Foundation
 import UIKit
 
-class SearchListDataSource: NSObject {
+class SuggestionListDelegates: NSObject {
     
-    var lastSearches: Set<String> = ["ahmed","hassen","ahmed"]
+    var lastSearches: Set<String> = ["ahmed", "hassen","siad",
+                                     "omar", "hassen", "siad",
+                                     "omar", "hassen", "siad",
+                                     "omar", "hassen", "siad", "omar"]
 
 }
 
-
-extension SearchListDataSource: UITableViewDataSource {
+extension SuggestionListDelegates: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lastSearches.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: LastSearchListCellTVCell.reuseID,
-            for: indexPath) as? LastSearchListCellTVCell
+            withIdentifier: LastSearchListTVCell.reuseID,
+            for: indexPath) as? LastSearchListTVCell
         else { fatalError("can`t dequeue last search cell") }
         let indx = lastSearches.index(lastSearches.startIndex, offsetBy: indexPath.row)
         let search = lastSearches[indx]
@@ -33,7 +35,7 @@ extension SearchListDataSource: UITableViewDataSource {
     
 }
 
-extension SearchListDataSource: UITableViewDelegate {
+extension SuggestionListDelegates: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let label = lastSearches[lastSearches.index(lastSearches.startIndex, offsetBy: indexPath.row)]
