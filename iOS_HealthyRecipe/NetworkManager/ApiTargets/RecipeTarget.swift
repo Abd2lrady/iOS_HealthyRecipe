@@ -9,7 +9,7 @@ import Moya
 import Foundation
 
 enum RecipeTarget {
-    case getRecipe
+    case getRecipe(query: String, filter: Filter?)
 }
 
 extension RecipeTarget: TargetType {
@@ -34,11 +34,13 @@ extension RecipeTarget: TargetType {
     var task: Task {
         let appKey = EnviromentVariables.appKey
         let appID = EnviromentVariables.appID
-        let param = ["q":"chicken", "app_key": appKey, "app_id": appID]
         switch self {
-        case .getRecipe:
+        case .getRecipe(let search, let filter):
+            var param = ["q": search, "app_key": appKey, "app_id": appID]
+            if let filter = filter?.rawValue {
+                param["health"] = filter
+            }
             return .requestParameters(parameters: param,
-                                          
                                       encoding: URLEncoding.default)
         }
     }

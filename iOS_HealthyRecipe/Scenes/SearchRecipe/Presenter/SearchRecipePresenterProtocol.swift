@@ -8,6 +8,11 @@
 import Foundation
 
 protocol SearchRecipePresenterProtocol {
-    func getRecipes()
+    var recipes: [Hit] { get }
+
+    func viewLoaded()
+    func getRecipes(search: String, filter: Filter?)
+    func saveSearch(search: String)
     func selectedRecipe(recipe: Recipe)
+    func filterRecipes(filter: Filter?)
 }

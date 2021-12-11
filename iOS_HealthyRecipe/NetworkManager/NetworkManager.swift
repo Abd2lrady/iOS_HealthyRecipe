@@ -22,7 +22,11 @@ class NetworkManager {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let response):
-                completion(.success(response.data))
+                if (200...299 ~= response.statusCode) {
+                    completion(.success(response.data))
+                } else {
+//                    completion(.failure())
+                }
             }
         }
     }

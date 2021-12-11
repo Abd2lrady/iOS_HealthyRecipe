@@ -10,10 +10,22 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum Strings {
+  /// All
+  internal static let all = Strings.tr("Localizable", "all")
+  /// Keto
+  internal static let keto = Strings.tr("Localizable", "keto")
+  /// Low Sugar
+  internal static let lowSugar = Strings.tr("Localizable", "lowSugar")
+  /// Sorry no Recipes for your query
+  internal static let noResult = Strings.tr("Localizable", "NoResult")
   /// Enter Your Recipe Here
   internal static let searchBarPlaceholder = Strings.tr("Localizable", "SearchBarPlaceholder")
   /// Search
   internal static let searchButtonTitle = Strings.tr("Localizable", "SearchButtonTitle")
+  /// Select To Filter of Your Healthy Recipes
+  internal static let selectFilterTitle = Strings.tr("Localizable", "SelectFilterTitle")
+  /// Vegan
+  internal static let vegan = Strings.tr("Localizable", "vegan")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

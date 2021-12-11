@@ -19,13 +19,14 @@ class LastSearchListTVCell: UITableViewCell {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        contentView.shapeAllCorners(radius: contentView.bounds.height / 2)
+        _lastSearchLabel.shapeAllCorners(radius: 10)
+        _lastSearchLabel.backgroundColor = Colors.selectedFilter.color
         configLabel()
     }
     
     private func configLabel() {
-        _lastSearchLabel.font = UIFont(font: Fonts.JosefinSans.regular, size: 12)
-        _lastSearchLabel.textColor = Colors.recipeDetails.color
+        _lastSearchLabel.font = UIFont(font: Fonts.JosefinSans.regular, size: 14)
+        _lastSearchLabel.textColor = Colors.cellText.color
     }
 }
 

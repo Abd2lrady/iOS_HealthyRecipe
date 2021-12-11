@@ -5,8 +5,17 @@
 //  Created by Ahmad Abdulrady
 //
 
-import Foundation
+import UIKit
 
 protocol SearchRecipeViewProtocol: AnyObject {
-    func recipeFetched()
+    func recipesFetched()
+    func searchesSaved()
+    func recipesFiltered(recipes: [Hit])
+    func showNoResult()
+    func hideNoResult()
+    var searchTextFieldDelegate: SearchTextFieldDelegate { get }
+    var suggestionListDelegate: SuggestionListDelegate { get }
+    var suggestionListDataSource: SuggestionListDataSource { get }
+    var filterListDelegate: FilterListCVDelegate { get }
+    var filterListDataSource: FilterListCVDataSource { get }
 }

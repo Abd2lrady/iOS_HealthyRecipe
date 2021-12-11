@@ -10,48 +10,54 @@ import Moya
 
 class SearchRecipeVC: UIViewController, UITextFieldDelegate {
    
-    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var query: UITextField!
     @IBOutlet weak var suggestionList: UITableView!
+    @IBOutlet weak var recipeListTV: UITableView!
+    @IBOutlet weak var filterCV: UICollectionView!
     @IBOutlet weak var suggestionListHeightConstrain: NSLayoutConstraint!
+    @IBOutlet weak var filterTitleLabel: UILabel!
+    lazy var noResultView = noResultLabel()
+    let maxSuggestListHeight = CGFloat(180)
     
     var presenter: SearchRecipePresenterProtocol!
-    var interactor = SearchRecipeInteractor()
+    
+    // MARK: Delegates
     let searchTextFieldDelegate = SearchTextFieldDelegate()
-    let suggestionListDelegates = SuggestionListDelegates()
-    let maxSuggestListHeight = CGFloat(100)
-
+    
+    let suggestionListDelegate = SuggestionListDelegate()
+    let suggestionListDataSource = SuggestionListDataSource()
+    
+    let filterListDelegate = FilterListCVDelegate()
+    let filterListDataSource = FilterListCVDataSource()
+    
+    let recipeListDelegate = RecipeListTVDelegate()
+    let recipeListDataSource = RecipeListTVDataSource()
+    
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+//        view.backgroundColor = .green
         configUI()
-//       "https://api.edamam.com/search?q=chicken&app_id=8a1f2d11&app_key=d815e43efdfd35392681f44e5151d1b4"
-        
-//        let urlString = "https://api.edamam.com"
-//        + "/search?q=chicken"
-//        + "&app_id=\(EnviromentVariables.appID)"
-//        + "&app_key=\(EnviromentVariables.appKey)"
-//
-//        guard let url = URL(string: urlString) else { fatalError("wrong url") }
-//        URLSession.shared.dataTask(with: url) { data, _, _ in
-//            print(data)
-//        }.resume()
-        
-//        let provider = MoyaProvider<MultiTarget>()
-//        provider.request(<#T##target: MultiTarget##MultiTarget#>, completion: <#T##Completion##Completion##(_ result: Result<Response, MoyaError>) -> Void#>)
-        
-        interactor.getRecipe { result in
-            switch result {
-            case .success(let recipes):
-                print(recipes)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        presenter.viewLoaded()
+
     }
-    
-    func configUI() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barStyle = .black
+    }
+// MARK: Configure UI
+    private func configUI() {
         configSuggestionList()
         configSearchTextField()
+        configRecipeList()
+        configFilterList()
+        hideNavBar()
+//        configFilterTitles()
+    }
+    
+    private func hideNavBar() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.isTranslucent = true
     }
 }
 
@@ -63,20 +69,29 @@ extension SearchRecipeVC {
                             bundle: .main)
         suggestionList.register(cellNib,
                                 forCellReuseIdentifier: LastSearchListTVCell.reuseID)
-        suggestionList.shapeAllCorners(radius: 5)
-        suggestionList.setBorders(with: 2, color: Colors.filterSelected.color)
         
-        suggestionList.dataSource = suggestionListDelegates
-        suggestionList.delegate = suggestionListDelegates
+        suggestionList.setBorders(with: 2, color: Colors.borders.color)
+        suggestionList.backgroundColor = Colors.search.color
+        suggestionList.alpha = 0.8
+        suggestionList.shapeAllCorners(radius: 5)
+
+        suggestionList.dataSource = suggestionListDataSource
+        suggestionList.delegate = suggestionListDelegate
+        suggestionListDelegate.selectedSuggest = {
+            self.hideList()
+            self.query.text = $0
+        }
     }
     
     var suggestListHeight: CGFloat {
         get {
-            return suggestionList.contentSize.height >
-            maxSuggestListHeight ? maxSuggestListHeight :
-            suggestionList.contentSize.height
+            return suggestionListHeightConstrain.constant
         } set {
-            suggestionListHeightConstrain.constant = newValue
+            if newValue > suggestionList.contentSize.height {
+                suggestionListHeightConstrain.constant = suggestionList.contentSize.height
+            } else {
+                suggestionListHeightConstrain.constant = newValue
+            }
         }
     }
     
@@ -99,18 +114,81 @@ extension SearchRecipeVC {
 // MARK: configure SearchField
 extension SearchRecipeVC {
     func configSearchTextField() {
-        searchTextField.delegate = searchTextFieldDelegate
-        searchTextField.returnKeyType = .search
+        query.delegate = searchTextFieldDelegate
+        
+        query.returnKeyType = .search
+        query.backgroundColor = Colors.search.color
+        query.alpha = 0.8
+        query.shapeAllCorners(radius: 10)
+        query.setBorders(with: 2, color: Colors.borders.color)
+        
         searchTextFieldDelegate.beginTypingCallBack = beginTyping
-        searchTextFieldDelegate.endTypingCallBack = endTyping
+        searchTextFieldDelegate.endTypingCallBack = {
+            self.endTyping(query: $0)
+        }
     }
     
     func beginTyping() {
         showList()
     }
     
-    func endTyping(search: String) {
+    func endTyping(query: String) {
         hideList()
-        presenter.getRecipes()
+        let filter = filterListDelegate.selectedFilter
+        presenter.getRecipes(search: query,
+                             filter: filter)
+        presenter.saveSearch(search: query)
     }
 }
+
+// MARK: configure RecipeList
+extension SearchRecipeVC {
+    func configRecipeList() {
+        recipeListTV.delegate = recipeListDelegate
+        recipeListTV.dataSource = recipeListDataSource
+        let cellNib = UINib(nibName: "\(RecipeListTVCell.self)", bundle: .main)
+        recipeListTV.register(cellNib,
+                              forCellReuseIdentifier: RecipeListTVCell.reuseID)
+        recipeListTV.alpha = 0.8
+        recipeListTV.shapeAllCorners(radius: 10)
+        recipeListTV.setBorders(with: 2, color: Colors.borders.color)
+        recipeListTV.isHidden = true
+    }
+}
+
+// MARK: configure FilterList
+extension SearchRecipeVC {
+    func configFilterList() {
+        filterCV.dataSource = filterListDataSource
+        filterCV.delegate = filterListDelegate
+        let cellNib = UINib(nibName: "\(FilterCell.self)", bundle: .main)
+        filterCV.register(cellNib, forCellWithReuseIdentifier: FilterCell.reuseID)
+        filterCV.backgroundColor = .clear
+        filterCV.shapeAllCorners(radius: 10)
+        filterCV.setBorders(with: 2, color: Colors.cellText.color)
+        filterCV.allowsMultipleSelection = false
+        
+        filterListDelegate.filter = {
+            self.presenter.filterRecipes(filter: $0)
+        }
+    }
+            
+}
+
+// MARK: configure No Result
+extension SearchRecipeVC {
+    func noResultLabel() -> UILabel {
+        let label = UILabel()
+        label.text = Strings.noResult
+        label.font = UIFont(font: Fonts.JosefinSans.bold, size: 14)
+        label.textColor = Colors.cellText.color
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                                     label.topAnchor.constraint(equalTo: filterCV.bottomAnchor, constant: 20)])
+        label.isHidden = true
+        
+        return label
+    }
+}
+
