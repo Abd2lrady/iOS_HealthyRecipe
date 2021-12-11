@@ -25,7 +25,7 @@ class SearchRecipeInteractor {
                                                                   from: response)
                     print(response.count)
                     completion(.success(parsedResponse.hits))
-                } catch(let parseError) {
+                } catch {
 //                    completion(.failure(parseError))
                 }
             }

@@ -32,8 +32,8 @@ extension SearchRecipePresenter: SearchRecipePresenterProtocol {
 
     }
     
-    func selectedRecipe(recipe: Recipe) {
-        
+    func selectedRecipe(recipeIndex: Int) {
+        view?.navigateToRecipeDetails(recipe: recipes[recipeIndex].recipe)
     }
     
     func viewLoaded() {

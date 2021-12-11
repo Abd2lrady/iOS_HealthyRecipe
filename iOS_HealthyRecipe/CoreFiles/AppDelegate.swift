@@ -11,7 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var appCoordinator: AppCoordinator!
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func bootStrap() {
         window = UIWindow()
-        let coordinator = AppCoordinator(window: window ?? UIWindow())
-        coordinator.coordinate()
+        appCoordinator = AppCoordinator(window: window ?? UIWindow())
+        appCoordinator?.coordinate()
     }
 
 }

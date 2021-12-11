@@ -13,6 +13,6 @@ protocol SearchRecipePresenterProtocol {
     func viewLoaded()
     func getRecipes(search: String, filter: Filter?)
     func saveSearch(search: String)
-    func selectedRecipe(recipe: Recipe)
+    func selectedRecipe(recipeIndex: Int)
     func filterRecipes(filter: Filter?)
 }

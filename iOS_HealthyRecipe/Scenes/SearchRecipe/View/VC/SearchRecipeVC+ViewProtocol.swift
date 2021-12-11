@@ -38,4 +38,8 @@ extension SearchRecipeVC: SearchRecipeViewProtocol {
     func searchesSaved() {
         suggestionList.reloadData()
     }
+    
+    func navigateToRecipeDetails(recipe: Recipe) {
+        coordinatorDelegate?.recipeDetails(for: recipe)
+    }
 }

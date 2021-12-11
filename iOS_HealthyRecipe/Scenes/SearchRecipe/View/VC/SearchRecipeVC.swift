@@ -20,7 +20,7 @@ class SearchRecipeVC: UIViewController, UITextFieldDelegate {
     let maxSuggestListHeight = CGFloat(180)
     
     var presenter: SearchRecipePresenterProtocol!
-    
+    weak var coordinatorDelegate: SearchRecipeCoordinatorProtocol?
     // MARK: Delegates
     let searchTextFieldDelegate = SearchTextFieldDelegate()
     
@@ -153,6 +153,9 @@ extension SearchRecipeVC {
         recipeListTV.shapeAllCorners(radius: 10)
         recipeListTV.setBorders(with: 2, color: Colors.borders.color)
         recipeListTV.isHidden = true
+        recipeListDelegate.selectedRecipe = {
+            self.presenter.selectedRecipe(recipeIndex: $0)
+        }
     }
 }
 
@@ -191,4 +194,3 @@ extension SearchRecipeVC {
         return label
     }
 }
-

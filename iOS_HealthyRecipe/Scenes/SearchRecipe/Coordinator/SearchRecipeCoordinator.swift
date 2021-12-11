@@ -16,4 +16,13 @@ class SearchRecipeCoordinator {
         self.router = router
         self.parentCoordinator = parentCoordinator
     }
+    
+    func navigateToRecipeDetails(for recipe: Recipe) {
+        let recipeDetailsCoordinator = RecipeDetailsCoordinator(parentCoordinator: self,
+                                                                router: router,
+                                                                recipe: recipe)
+        childCoordinators.append(recipeDetailsCoordinator)
+        recipeDetailsCoordinator.coordinate()
+    }
+
 }

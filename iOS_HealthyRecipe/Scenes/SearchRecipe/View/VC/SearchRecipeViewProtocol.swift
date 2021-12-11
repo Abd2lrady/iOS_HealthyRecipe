@@ -11,6 +11,7 @@ protocol SearchRecipeViewProtocol: AnyObject {
     func recipesFetched()
     func searchesSaved()
     func recipesFiltered(recipes: [Hit])
+    func navigateToRecipeDetails(recipe: Recipe)
     func showNoResult()
     func hideNoResult()
     var searchTextFieldDelegate: SearchTextFieldDelegate { get }
