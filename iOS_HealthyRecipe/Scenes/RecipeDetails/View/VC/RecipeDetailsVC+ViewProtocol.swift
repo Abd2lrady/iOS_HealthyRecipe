@@ -8,10 +8,10 @@
 import UIKit
 
 extension RecipeDetailsVC: RecipeDetailsViewProtocol {
-    
-    func setRecipeImage(img: UIImage) {
-        recipeImg.contentMode = .scaleAspectFill
-        recipeImg.image = img
+
+    func setIngredient(ingredient: [String]) {
+        ingredientListTVDataSource.ingredients = ingredient
+        ingredientListTV.reloadData()
     }
     
 }

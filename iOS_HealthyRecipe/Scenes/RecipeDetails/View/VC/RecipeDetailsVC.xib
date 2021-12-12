@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecipeDetailsVC" customModule="iOS_HealthyRecipe" customModuleProvider="target">
             <connections>
-                <outlet property="ingredientLinesListTV" destination="NCj-38-TV5" id="VH3-SJ-d5t"/>
-                <outlet property="recipeImg" destination="0Eo-wr-5pQ" id="9x7-T6-sG6"/>
+                <outlet property="_ingredientListTV" destination="NCj-38-TV5" id="VH3-SJ-d5t"/>
+                <outlet property="_recipeImg" destination="0Eo-wr-5pQ" id="9x7-T6-sG6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,8 +24,8 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="HKV-5O-ffC">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0Eo-wr-5pQ">
-                    <rect key="frame" x="0.0" y="45" width="414" height="311"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Eo-wr-5pQ">
+                    <rect key="frame" x="0.0" y="44" width="414" height="313.5"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NCj-38-TV5">
                     <rect key="frame" x="20" y="367.5" width="374" height="494.5"/>
@@ -53,7 +53,6 @@
     </objects>
     <resources>
         <image name="background" width="2352" height="4160"/>
-        <image name="folder.fill" catalog="system" width="128" height="97"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

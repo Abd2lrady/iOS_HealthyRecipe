@@ -13,7 +13,7 @@ extension AppCoordinator: CoordinatorProtocol {
     func coordinate() {
         let navController = UINavigationController()
         let router = Router(navController: navController)
-        var searchCoordinator = SearchRecipeCoordinator(router: router, parentCoordinator: self)
+        let searchCoordinator = SearchRecipeCoordinator(router: router, parentCoordinator: self)
         searchCoordinator.coordinate()
         childCoordinators.append(searchCoordinator)
         window.rootViewController = navController

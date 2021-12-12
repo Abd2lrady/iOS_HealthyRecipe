@@ -9,5 +9,7 @@ import Foundation
 import UIKit
 
 protocol RecipeDetailsViewProtocol: AnyObject {
-    func setRecipeImage(img: UIImage)
+    var recipeImg: UIImageView { get set }
+    func setIngredient(ingredient: [String])
+    
 }

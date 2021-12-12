@@ -16,7 +16,6 @@ class IngredientCell: UITableViewCell {
         // Initialization code
     }
 
-
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         configUI()

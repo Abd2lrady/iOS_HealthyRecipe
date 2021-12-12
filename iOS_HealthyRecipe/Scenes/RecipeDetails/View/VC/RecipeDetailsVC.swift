@@ -9,9 +9,9 @@ import UIKit
 
 class RecipeDetailsVC: UIViewController {
 
-    @IBOutlet weak var recipeImg: UIImageView!
+    @IBOutlet private weak var _recipeImg: UIImageView!
     
-    @IBOutlet weak var ingredientLinesListTV: UITableView!
+    @IBOutlet private weak var _ingredientListTV: UITableView!
     
     var presenter: RecipeDetailsPresenterProtocol!
     let ingredientListTVDataSource = IngredientListTVDataSource()
@@ -19,6 +19,7 @@ class RecipeDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        presenter.viewLoaded()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -54,12 +55,30 @@ class RecipeDetailsVC: UIViewController {
 
 extension RecipeDetailsVC {
     func configIngredientList() {
-        ingredientLinesListTV.dataSource = ingredientListTVDataSource
+        _ingredientListTV.dataSource = ingredientListTVDataSource
         let cellNib = UINib(nibName: "\(IngredientCell.self)", bundle: .main)
-        ingredientLinesListTV.register(cellNib,
-                                       forCellReuseIdentifier: IngredientCell.reuseID)
-        ingredientLinesListTV.alpha = 0.8
-        ingredientLinesListTV.shapeAllCorners(radius: 10)
-        ingredientLinesListTV.setBorders(with: 2, color: Colors.borders.color)
+        _ingredientListTV.register(cellNib,
+                                   forCellReuseIdentifier: IngredientCell.reuseID)
+        _ingredientListTV.alpha = 0.8
+        _ingredientListTV.shapeAllCorners(radius: 10)
+    }
+    
+}
+
+extension RecipeDetailsVC {
+    var recipeImg: UIImageView {
+        get {
+            return _recipeImg
+        } set {
+            _recipeImg = newValue
+        }
+    }
+    
+    var ingredientListTV: UITableView {
+        get {
+            return _ingredientListTV
+        } set {
+            _ingredientListTV = newValue
+        }
     }
 }

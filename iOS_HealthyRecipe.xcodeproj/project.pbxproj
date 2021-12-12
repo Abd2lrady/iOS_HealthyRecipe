@@ -517,8 +517,8 @@
 		B4ADA18B27653DDE0072E4CB /* RecipeDetails */ = {
 			isa = PBXGroup;
 			children = (
-				B4AED723276567650022B8F7 /* Delegates */,
 				B4ADA194276548800072E4CB /* RecipeDetailsCoordinator */,
+				B4AED723276567650022B8F7 /* Delegates */,
 				B4ADA19927654A7A0072E4CB /* Presenter */,
 				B4AED719276564840022B8F7 /* View */,
 			);
