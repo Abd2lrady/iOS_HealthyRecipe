@@ -11,7 +11,6 @@
 		B41A16E12764A5ED00C8A28B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41A16E02764A5ED00C8A28B /* Constants.swift */; };
 		B41A16E62764C10E00C8A28B /* HealthyLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41A16E42764C10E00C8A28B /* HealthyLabelCell.swift */; };
 		B41A16E72764C10E00C8A28B /* HealthyLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B41A16E52764C10E00C8A28B /* HealthyLabelCell.xib */; };
-		B41A16ED2764D07800C8A28B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B41A16EC2764D07800C8A28B /* Kingfisher */; };
 		B4207731275F62E8007EA30A /* SearchTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4207730275F62E8007EA30A /* SearchTextFieldDelegate.swift */; };
 		B4207735275F8F56007EA30A /* RecipeTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4207734275F8F56007EA30A /* RecipeTarget.swift */; };
 		B4207737275F957D007EA30A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4207736275F957D007EA30A /* NetworkManager.swift */; };
@@ -22,10 +21,11 @@
 		B42E330827628E450086156C /* FilterListCVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E330727628E440086156C /* FilterListCVDataSource.swift */; };
 		B42E330A276291410086156C /* FilterListCVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E3309276291410086156C /* FilterListCVDelegate.swift */; };
 		B42E330C276291E10086156C /* SuggestionListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E330B276291E10086156C /* SuggestionListDataSource.swift */; };
+		B4921F3E286C440E00FAAE6E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B4921F3D286C440E00FAAE6E /* Kingfisher */; };
+		B4921F41286C464600FAAE6E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B4921F40286C464600FAAE6E /* Moya */; };
 		B492C1FD275B8BBB007E1942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492C1FC275B8BBB007E1942 /* AppDelegate.swift */; };
 		B492C206275B8BBC007E1942 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B492C205275B8BBC007E1942 /* Assets.xcassets */; };
 		B492C209275B8BBC007E1942 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B492C207275B8BBC007E1942 /* LaunchScreen.storyboard */; };
-		B492C212275B8C89007E1942 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B492C211275B8C89007E1942 /* Moya */; };
 		B492C220275B9377007E1942 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = B492C21F275B9377007E1942 /* swiftgen.yml */; };
 		B492C224275B953F007E1942 /* SearchRecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492C222275B953F007E1942 /* SearchRecipeVC.swift */; };
 		B492C225275B953F007E1942 /* SearchRecipeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B492C223275B953F007E1942 /* SearchRecipeVC.xib */; };
@@ -50,8 +50,6 @@
 		B492C256275BB258007E1942 /* SearchRecipeVC+ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492C255275BB258007E1942 /* SearchRecipeVC+ViewProtocol.swift */; };
 		B492C258275C3458007E1942 /* Colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = B492C257275C3458007E1942 /* Colors.txt */; };
 		B492C266275C3CC5007E1942 /* EnviromentVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492C263275C3CC4007E1942 /* EnviromentVariables.swift */; };
-		B492C267275C3CC5007E1942 /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B492C264275C3CC4007E1942 /* Production.xcconfig */; };
-		B492C268275C3CC5007E1942 /* Demo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B492C265275C3CC5007E1942 /* Demo.xcconfig */; };
 		B492C26B275C4C5B007E1942 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492C26A275C4C5B007E1942 /* Recipe.swift */; };
 		B492C26D275C4E77007E1942 /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492C26C275C4E77007E1942 /* ServerResponse.swift */; };
 		B4A24506275C83F000A32A44 /* SuggestionListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A24505275C83F000A32A44 /* SuggestionListDelegate.swift */; };
@@ -159,8 +157,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B41A16ED2764D07800C8A28B /* Kingfisher in Frameworks */,
-				B492C212275B8C89007E1942 /* Moya in Frameworks */,
+				B4921F41286C464600FAAE6E /* Moya in Frameworks */,
+				B4921F3E286C440E00FAAE6E /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,8 +623,8 @@
 			);
 			name = iOS_HealthyRecipe;
 			packageProductDependencies = (
-				B492C211275B8C89007E1942 /* Moya */,
-				B41A16EC2764D07800C8A28B /* Kingfisher */,
+				B4921F3D286C440E00FAAE6E /* Kingfisher */,
+				B4921F40286C464600FAAE6E /* Moya */,
 			);
 			productName = iOS_HealthyRecipe;
 			productReference = B492C1F9275B8BBB007E1942 /* iOS_HealthyRecipe.app */;
@@ -640,7 +638,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1310;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					B492C1F8275B8BBB007E1942 = {
 						CreatedOnToolsVersion = 13.1;
@@ -657,8 +655,8 @@
 			);
 			mainGroup = B492C1F0275B8BBB007E1942;
 			packageReferences = (
-				B492C210275B8C89007E1942 /* XCRemoteSwiftPackageReference "Moya" */,
-				B41A16EB2764D07800C8A28B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B4921F3C286C440E00FAAE6E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B4921F3F286C464600FAAE6E /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = B492C1FA275B8BBB007E1942 /* Products */;
 			projectDirPath = "";
@@ -675,9 +673,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B492C23A275BA05B007E1942 /* Localizable.strings in Resources */,
-				B492C268275C3CC5007E1942 /* Demo.xcconfig in Resources */,
 				B41A16E72764C10E00C8A28B /* HealthyLabelCell.xib in Resources */,
-				B492C267275C3CC5007E1942 /* Production.xcconfig in Resources */,
 				B492C209275B8BBC007E1942 /* LaunchScreen.storyboard in Resources */,
 				B492C258275C3458007E1942 /* Colors.txt in Resources */,
 				B4A24515275C996B00A32A44 /* FilterCell.xib in Resources */,
@@ -710,7 +706,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		B492C21E275B92EC007E1942 /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -728,7 +724,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download from https://github.com/swiftgen\"\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download from https://github.com/swiftgen\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -858,7 +854,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -882,7 +878,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -948,7 +944,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -972,7 +968,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1011,15 +1007,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B41A16EB2764D07800C8A28B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		B4921F3C286C440E00FAAE6E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
-				branch = "version6-xcode13";
+				branch = master;
 				kind = branch;
 			};
 		};
-		B492C210275B8C89007E1942 /* XCRemoteSwiftPackageReference "Moya" */ = {
+		B4921F3F286C464600FAAE6E /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
 			requirement = {
@@ -1030,14 +1026,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B41A16EC2764D07800C8A28B /* Kingfisher */ = {
+		B4921F3D286C440E00FAAE6E /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B41A16EB2764D07800C8A28B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = B4921F3C286C440E00FAAE6E /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		B492C211275B8C89007E1942 /* Moya */ = {
+		B4921F40286C464600FAAE6E /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B492C210275B8C89007E1942 /* XCRemoteSwiftPackageReference "Moya" */;
+			package = B4921F3F286C464600FAAE6E /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */

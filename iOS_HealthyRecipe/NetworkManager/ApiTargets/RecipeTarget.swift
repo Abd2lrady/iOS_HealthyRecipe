@@ -20,7 +20,7 @@ extension RecipeTarget: TargetType {
     var path: String {
         switch self {
         case .getRecipe:
-            return "search"
+            return "/search"
         }
     }
     
